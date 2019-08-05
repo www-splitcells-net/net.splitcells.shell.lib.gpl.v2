@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+gsettings set org.gnome.software download-updates false # Disables automatic update download by packagekit.
+# TODO If the previous command is not working:
+	# "sudo systemctl disable packagekitd" will disable packagkit service permamently on the next boot.

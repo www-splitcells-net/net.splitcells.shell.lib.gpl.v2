@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Worked on Fedora 28 as a VirtualBox guest.
+# TODO This update routine does not seem to work if there is a connection issues to one repository:
+	# Download updates via PackageKit.
+	# 1 repo can sometimes not be connected to and therefore fails.
+	# Redownload updates and execute update.
+	# Update is not executed and fails, because no updates were found (TODO Copy error message.)
+# TODO Not recommendge to be used with DNF?: https://www.ctrl.blog/entry/packagekit-dnf
+sudo pkcon update -y
+	# source: https://www.happyassassin.net/2016/10/04/x-crash-during-fedora-update-when-system-has-hybrid-graphics-and-systemd-udev-is-in-update/
+	sudo pkcon refresh force -c -1
+	sudo pkcon update --only-download
+	sudo pkcon offline-trigger

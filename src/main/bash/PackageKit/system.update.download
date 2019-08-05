@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+sudo pkcon refresh force -c -1
+sudo pkcon update --only-download
