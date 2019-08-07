@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+. this.requires dnf
+sudo rm /etc/yum.repos.d/vivaldi.repo # This returns error if file is not present.
+set -e
+sudo bash -c "cat >> /etc/yum.repos.d/vivaldi.repo" <<- EOL
+	[vivaldi]
+	name=Fedora $releasever - $basearch
+	failovermethod=priority
+	baseurl=http://repo.vivaldi.com/archive/rpm/x86_64
+	enabled=1
+	metadata_expire=10d
+	gpgcheck=0
+EOL
+sudo dnf install -y vivaldi-stable

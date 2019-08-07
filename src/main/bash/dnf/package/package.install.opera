@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# https://www.opera.com/
+# https://rpm.opera.com/manual.html
+. this.requires dnf
+sudo rm /etc/yum.repos.d/opera.repo  # This returns error if file is not present.
+set -e
+sudo bash -c "cat >> /etc/yum.repos.d/opera.repo" <<- EOL
+	[opera]
+	name=Opera packages
+	type=rpm-md
+	baseurl=https://rpm.opera.com/rpm
+	gpgcheck=1
+	gpgkey=https://rpm.opera.com/rpmrepo.key
+	enabled=1
+EOL
+sudo rpm --import https://rpm.opera.com/rpmrepo.key
+sudo dnf install -y opera-developer

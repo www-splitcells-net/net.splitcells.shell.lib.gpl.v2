@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+. this.requires dnf
+sudo rm /etc/yum.repos.d/chrome.repo # This returns error if file is not present.
+set -e
+sudo bash -c "cat >> /etc/yum.repos.d/chrome.repo" <<- EOL
+		[google-chrome]
+		name=google-chrome
+		baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+		enabled=1
+		gpgcheck=1
+		gpgkey=https://dl.google.com/linux/linux_signing_key.pub
+EOL
+sudo dnf install -y google-chrome-stable
