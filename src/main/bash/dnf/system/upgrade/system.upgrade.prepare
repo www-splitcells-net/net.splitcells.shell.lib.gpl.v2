@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# source: https://fedoraproject.org/wiki/DNF_system_upgrade
+# TODO Check if argument is present.
+set -e
+targetVersion=$1
+system.update
+sudo dnf install -y dnf-plugin-system-upgrade
+sudo dnf --refresh upgrade
+sudo dnf system-upgrade download --assumeyes --refresh --releasever=$targetVersion

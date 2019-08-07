@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -e
+sudo dnf check
+sudo dnf list extras # TODO Log not used software in system logs as errors.
+# TODO "sudo dnf autoremove" not working: There's a known bug in PackageKit which doesn't mark packages as user-installed, see bug 1259865. If you use PackageKit (or GNOME Software, Apper, etc) for installation, this output might list even important apps and system packages, so beware.
+# TODO inform user about https://fedoraproject.org/wiki/DNF_system_upgrade#Resolving_post-upgrade_issues
