@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Worked on Ubuntu and may work in Debian.
+sudo apt install -y chromium-browser
