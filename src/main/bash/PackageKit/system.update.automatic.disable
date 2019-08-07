@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+	pkcon --help >> /dev/null # Abort if the user does cannot execute PackageKit without errors.
 gsettings set org.gnome.software download-updates false # Disables automatic update download by packagekit.
 # TODO If the previous command is not working:
 	# "sudo systemctl disable packagekitd" will disable packagkit service permamently on the next boot.

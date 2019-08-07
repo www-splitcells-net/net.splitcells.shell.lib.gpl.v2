@@ -6,6 +6,8 @@
 	# Redownload updates and execute update.
 	# Update is not executed and fails, because no updates were found (TODO Copy error message.)
 # TODO Not recommendge to be used with DNF?: https://www.ctrl.blog/entry/packagekit-dnf
+set -e
+	pkcon --help >> /dev/null # Abort if the user does cannot execute PackageKit without errors.
 sudo pkcon update -y
 	# source: https://www.happyassassin.net/2016/10/04/x-crash-during-fedora-update-when-system-has-hybrid-graphics-and-systemd-udev-is-in-update/
 	sudo pkcon refresh force -c -1

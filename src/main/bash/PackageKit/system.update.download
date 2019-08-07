@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+set -e
+	pkcon --help >> /dev/null # Abort if the user does cannot execute PackageKit without errors.
 sudo pkcon refresh force -c -1
 sudo pkcon update --only-download
