@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+user.command.disable pkcon
