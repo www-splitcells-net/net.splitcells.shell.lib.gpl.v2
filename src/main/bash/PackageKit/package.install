@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
-sudo pkcon install -y $1
+#!/usr/bin/env sh
+output=$(sudo.at.current.env pkcon install -y $1)
+rCode=$?
+echo.error $output
 	# Also it does support many package manager it does not support the package name space of each
 		# package manager. i.e. "sudo pkcon install vi" does not install the text editor vi whereas
 		# "sudo dnf -y install vi" does work without a problem.
-rCode=$?
 if [ "$rCode" -eq "7" ]; then
 	exit # package installed
 fi
