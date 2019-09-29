@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-sudo dnf install -y $1
+output=$(sudo.at.current.env "sudo dnf install -y $1" 2> /dev/null)
+rCode=$?
+if [ "$rCode" -eq "0" ]; then
+	exit
+fi
+echo.debug $output
+exit 1
