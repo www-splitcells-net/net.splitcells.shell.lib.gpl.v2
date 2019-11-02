@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
-output=$(sudo.at.current.env "sudo dnf install -y $1" 2> /dev/null)
-rCode=$?
-if [ "$rCode" -eq "0" ]; then
-	exit
+if [ -x "$(command -v dnf)" ]; then
+	output=$(sudo dnf install -y $1 > /dev/null)
+	if [ "$?" -eq "0" ]; then
+		exit 0
+	else
+		echo.error $output
+		exit 1
+	fi
+else
+	echo.debug DNF is not installed.
+	exit 1
 fi
-echo.debug $output
-exit 1
