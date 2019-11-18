@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+git status --porcelain | cut --character=4- | sed --quiet $1p
