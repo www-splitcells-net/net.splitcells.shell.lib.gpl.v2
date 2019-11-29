@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 # Use apt-get instead of apt, because apt recommands it that way: https://askubuntu.com/questions/990823/apt-gives-unstable-cli-interface-warning/990838#990838
 if [ -x "$(command -v apt)" ]; then
-	output=$(sudo apt-get install -y $1 > /dev/null)
-	if [ "$?" -eq "0" ]; then
-		exit 0
-	else
-		echo.error $output
-		exit 1
-	fi
+	run.and.show.if.failed "sudo apt-get install -y $1"
 else
-	echo.debug DNF is not installed.
+	echo.debug Apt is not installed.
 	exit 1
 fi
