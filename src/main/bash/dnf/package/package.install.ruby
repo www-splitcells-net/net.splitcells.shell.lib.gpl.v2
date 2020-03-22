@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
-sudo dnf install -y ruby
-sudo dnf install -y rubygems
-sudo dnf install -y ruby-devel
-sudo dnf install -y rubygems-devel
-sudo dnf install -y rubygem-bundler
+run.and.show.if.failed "sudo dnf install -y ruby"
+run.and.show.if.failed "sudo dnf install -y rubygems"
+run.and.show.if.failed "sudo dnf install -y ruby-devel"
+run.and.show.if.failed "sudo dnf install -y rubygems-devel"
+run.and.show.if.failed "sudo dnf install -y rubygem-bundler"
