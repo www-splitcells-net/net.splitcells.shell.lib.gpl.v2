@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+ifconfig -a \
+	| sed 's/[ \t].*//;/^$/d' \
+	| rev \
+	| cut -b 2- \
+	| rev \
+	| sort \
+	| xargs -r -n 1 -I {} sh -c "iwlist {} scan || true"
