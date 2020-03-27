@@ -5,4 +5,4 @@ ifconfig -a \
 	| cut -b 2- \
 	| rev \
 	| sort \
-	| xargs -r -n 1 -I {} sh -c "iwlist {} scan || true"
+	| xargs -r -n 1 -I {} sh -c 'iwlist {} scan || true'
