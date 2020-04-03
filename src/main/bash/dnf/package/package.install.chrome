@@ -10,4 +10,4 @@ sudo bash -c "cat >> /etc/yum.repos.d/chrome.repo" <<- EOL
 		gpgcheck=1
 		gpgkey=https://dl.google.com/linux/linux_signing_key.pub
 EOL
-sudo dnf install -y google-chrome-stable
+run.and.show.if.failed "sudo dnf install -y google-chrome-stable"
