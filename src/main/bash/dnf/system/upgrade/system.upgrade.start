@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo dnf system-upgrade reboot
+run.and.show.if.failed "sudo dnf system-upgrade reboot"
