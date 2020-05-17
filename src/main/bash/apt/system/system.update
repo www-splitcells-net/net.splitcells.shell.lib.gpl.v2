@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # APT seems to be licensed under GPLv2+: https://en.wikipedia.org/wiki/APT_(Package_Manager)
+. this.active.if.presence.of apt
 sudo apt update
 sudo apt upgrade -y
