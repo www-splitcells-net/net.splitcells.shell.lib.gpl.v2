@@ -1,32 +1,7 @@
 #!/usr/bin/env bash
-set -e
-if [ $(($(sudo dnf list updates | wc -l) - 2)) -eq "0" ]; then
-	echo "No updates available.";
-	exit 0;
-fi
-until sudo dnf -y update --downloadonly
-do
-  pass
-done
-if [ "graphical.target" == "$(sudo systemctl get-default)" ]
-then
-	# TODO Use offline mode or alternative, because multi-user.target does not mean that the number of running components is minimized.
-		# IDEA offline update installation via systemd https://www.freedesktop.org/software/systemd/man/systemd.offline-updates.html
-	echo Updates are downloaded and ready for installation.
-	echo The updates need to be installed manually via "system.update.via.dnf".
-	echo This should be done in terminal mode in order to minimize the number of active components during the update.
-	. wait.for.user.confirmation Do you want to restart the system into terminal mode?
-	if [ "yes" == "$rVal" ];
-	then
-		echo "Restarting system into terminal mode."
-		sudo systemctl set-default multi-user.target
-		systemctl reboot
-	else
-		echo "Aborting process."
-	fi
-	exit
-else
-	sudo dnf -y update
-	sudo systemctl set-default graphical.target # TODO We assume that GUI is used during normal operations.
-	systemctl reboot
-fi
+sudo dnf upgrade --refresh
+	# Since version 21 of Fedora there is no need to explicitly download updates and
+	# to restart the system in a special environment in order to install the updates.
+	# This is now handled by DNF itself.
+	# Source: https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
+echo "Please restart system in order to complete DNF updates."
