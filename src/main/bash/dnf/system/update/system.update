@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-sudo dnf upgrade --refresh
+sudo dnf upgrade --refresh --assumeyes
 	# Since version 21 of Fedora there is no need to explicitly download updates and
 	# to restart the system in a special environment in order to install the updates.
 	# This is now handled by DNF itself.
 	# Source: https://docs.fedoraproject.org/en-US/quick-docs/dnf-system-upgrade/
-echo "Please restart system in order to complete DNF updates."
+echo.error "Please restart system in order to complete DNF updates."

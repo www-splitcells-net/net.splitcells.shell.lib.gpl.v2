@@ -8,6 +8,6 @@ if [ -x "$(command -v dnf)" ]; then
 		exit 1
 	fi
 else
-	echo.debug DNF is not installed.
+	echo DNF is not installed.
 	exit 1
 fi

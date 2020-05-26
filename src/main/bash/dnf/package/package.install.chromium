@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-run.and.show.if.failed "sudo dnf install -y chromium"
+sudo dnf install -y chromium

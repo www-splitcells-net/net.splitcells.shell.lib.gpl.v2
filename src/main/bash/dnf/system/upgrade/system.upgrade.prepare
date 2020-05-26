@@ -19,8 +19,8 @@
 . this.requires dnf
 set -e
 # Based on "https://fedoraproject.org/wiki/DNF_system_upgrade".
-run.and.show.if.failed "sudo dnf upgrade --refresh"
-run.and.show.if.failed "sudo dnf install -y dnf-plugin-system-upgrade"
+sudo dnf upgrade --refresh
+sudo dnf install -y dnf-plugin-system-upgrade
 . /etc/os-release # Read VERSION_ID variable.
 targetRelease=$((VERSION_ID+1)) # It is generally recommanded to only upgrade by 1 version at a time in order to ommit issues.
-run.and.show.if.failed "sudo dnf system-upgrade download --assumeyes --refresh --releasever=$targetRelease"
+sudo dnf system-upgrade download --assumeyes --refresh --releasever=$targetRelease
