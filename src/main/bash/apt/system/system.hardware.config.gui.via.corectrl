@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-corectrl
+corectrl # corectrl is licensed under GPL 3 but this script has no integration into this software.
