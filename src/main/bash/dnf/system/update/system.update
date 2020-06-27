@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. this.active.if.presence.of dnf
 sudo dnf upgrade --refresh --assumeyes
 	# Since version 21 of Fedora there is no need to explicitly download updates and
 	# to restart the system in a special environment in order to install the updates.
