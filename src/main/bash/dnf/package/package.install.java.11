@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-sudo dnf install -y java-11-openjdk
-sudo dnf install -y java-11-openjdk-devel
+
+sudo.at.current.env dnf install -y java-11-openjdk
+sudo.at.current.env dnf install -y java-11-openjdk-devel
