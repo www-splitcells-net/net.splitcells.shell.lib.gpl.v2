@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+nc -w 5 -z "$@" 22
