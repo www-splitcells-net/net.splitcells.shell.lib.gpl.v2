@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+if [ 'true' == "$(repo.is.instance.of.git)" ]; then
+	if [ 'true' == "$(repo.is.instance.of.git.bare)" ]; then
+		exit 0
+	else
+		git add -A
+		if [ -n "$(git status --porcelain)" ]; then
+			git commit -am 'Committed by "'$USER'" on "'$(hostname)'".' # TODO Create and use rules regarding automatic commit messages.
+		fi
+		exit $?
+	fi
+	exit $?
+else
+	exit 1
+fi
