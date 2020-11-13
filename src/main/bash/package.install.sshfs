@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 command.managed.execute disjunction package.install sshfs
-package.install fusermount3
-if [ "1" -eq "$(system.is.Ubuntu)" ]; then
-	package.install fuse3
-fi
+# Install useful tools.
+	package.install fusermount3
+	if [ "1" -eq "$(system.is.Ubuntu)" ]; then
+		package.install fuse3
+	fi
