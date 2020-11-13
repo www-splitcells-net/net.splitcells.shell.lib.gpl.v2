@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+if [ "1" -eq "$(system.is.Ubuntu)" ]; then
+	if $(sudo dmidecode | grep -q "Product Name: XPS 15 9570"); then
+		# Let users check fan speed with lm-sensors
+		# Based on: https://github.com/JackHack96/dell-xps-9570-ubuntu-respin/blob/master/xps-tweaks.sh
+		# https://gist.github.com/mdziekon/221bdb597cf32b46c50ffab96dbec08a
+		# TODO Make this part own file with own license.
+		# TODO According to /lib/modules/$(uname -r) "_" should be used instead of "-in the module name.
+		sudp -- sh -c 'echo "options dell-smm-hwmon restricted=0 force=1" > /etc/modprobe.d/dell-smm-hwmon.conf'
+		if cat /etc/modules | grep "dell-smm-hwmon" &>/dev/null
+		then
+			echo "dell-smm-hwmon is already in /etc/modules!"
+		else
+			sudo -- sh -c 'echo "dell-smm-hwmon" >> /etc/modules'
+			fi
+		sudo update-initramfs -u
+		fi
+	# exfat-fuse seems to licensed under the GPL v2: https://github.com/relan/exfat/blob/master/COPYING
+	sudo apt-get install exfat-fuse exfat-utils # Install exFat file system support. No restart required on Ubuntu 19.04 in order for this command to enable the file system support via Gnome Files according to local test.
+else
+	exit 1
+	fi
