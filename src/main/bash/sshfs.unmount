@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if mount | grep "$HOME/connections/$1" > /dev/null; then
+	fusermount3 -u ~/connections/$1
+else
+	echo "Already unmounted."
+fi

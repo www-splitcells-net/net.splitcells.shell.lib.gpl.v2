@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if mount | grep "$HOME/connections/$2" > /dev/null; then
+	echo "Already mounted."
+	exit
+else
+	mkdir -p ~/connections/$2
+	sshfs $1: ~/connections/$2
+fi
