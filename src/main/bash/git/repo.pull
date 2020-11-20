@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# TODO Only do this for projects where merge based publishing is allowed.
+if [ 'true' == $(repo.is.instance.of.git) ]; then
+	git remote update
+	if [ 'true' == $(repo.is.instance.of.git.bare) ]; then
+		exit $?
+	else
+		# TODO Update all branches.
+		git submodule update --recursive --remote
+		git pull
+		# IDEA Support for rebase
+		exit $?
+	fi
+else
+	exit 1
+fi

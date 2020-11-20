@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# TODO git submodule update --init --recursive
+beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+# Source: https://stackoverflow.com/questions/2172352/in-bash-how-can-i-check-if-a-string-begins-with-some-value
+if beginswith "ssh://" $1; then
+	if [ $# -eq "2" ]; then
+		git fetch "$1":"$2"
+		if [ 'true' = "$(repo.is.instance.of.git.bare)" ]; then
+			# TODO "--all" does not work. Does anything else has to be used?
+				git branch | cut -c 3- | xargs -i git push $1:$2 {}
+		else
+			git push --all $1:$2 2>&1
+		fi
+	else
+		git push --all $1 2> 2>&1
+	fi
+else
+	git push --all $1 2> 2>&1
+fi
+rCode=$?
+if [ "$rCode" -eq "0" ]; then
+	exit
+fi
+echo.error Could not push to '"'$@'"'.
+exit 1

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+if [ repo.is.instance.of.git ]; then
+	if [ 'true' = "$(repo.is.instance.of.git.bare)" ]; then
+		exit 0
+	else
+		git add -u # Untracked files are ignored.
+		if [ -n "$(git status --porcelain)" ]; then
+			output=$(git commit -am "commit message") # TODO Create and use rules regarding automatic commit messages.
+		fi
+		errCode=$?
+		if [ $errCode -ne 0 ]; then
+			echo.error $output
+		fi
+		exit $errCode
+	fi
+	exit $?
+else
+	exit 1
+fi

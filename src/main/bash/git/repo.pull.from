@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# TODO git submodule update --init --recursive
+beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+# Source: https://stackoverflow.com/questions/2172352/in-bash-how-can-i-check-if-a-string-begins-with-some-value
+# TODO Create address processing method.
+if beginswith "ssh://" $1; then
+	if [ $# -eq "2" ]; then
+		address=$1":"$2
+	else
+		address=$1
+	fi
+else
+	address=$1
+fi
+# TODO Only do this for repositories where merge based publishing is allowed.
+if [ 'true' == $(repo.is.instance.of.git) ]; then
+	if [ 'true' == $(repo.is.instance.of.git.bare) ]; then
+		git fetch $address
+	else
+		# TODO Update or check all branches.
+		git submodule update --recursive --remote
+		git pull $address
+	fi
+else
+	exit 1
+fi
+exit $?

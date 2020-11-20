@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Last argument is the target folder, which is the last part of the url of the source.
+git clone --mirror $@
+	# Does not create mirror if folder is already present.
