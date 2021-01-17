@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
-if git diff-index --quiet HEAD
+if repo.is.instance.of.git > /dev/null
 then
-	git status
+	if git diff-index --quiet HEAD
+	then
+		exit
+	else
+		pwd # Makes it easier to see, where changes are located.
+		git status
+	fi
 fi
