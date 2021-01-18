@@ -4,5 +4,5 @@ if mount | grep "$HOME/connections/$2" > /dev/null; then
 	exit
 else
 	mkdir -p ~/connections/$2
-	sshfs $1: ~/connections/$2
+	sshfs -o follow_symlinks $1: ~/connections/$2
 fi
