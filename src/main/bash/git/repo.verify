@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-git fsck --full
+if [[ $(git rev-parse --show-toplevel 2>/dev/null) = "$PWD" ]]; then
+	git fsck --full
+else
+	exit 1
+fi
