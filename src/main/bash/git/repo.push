@@ -2,11 +2,11 @@
 if [ 'true' == $(repo.is.instance.of.git) ]; then
 	if [ 'true' == $(repo.is.instance.of.git.bare) ]; then
 		echo.error Pushing all branches from mirror is not supported.
-		git push # TODO Does this work?
+		git push origin # TODO Does this work?
 	else
 		# --mirror and --all are not compatible.
 		# TODO TOFIX Logging needs to be corrected.
-		git remote | xargs -L1 -i git push --all {}
+		git remote | xargs -L1 -i git push origin --all {}
 	fi
 else
 	exit 1
