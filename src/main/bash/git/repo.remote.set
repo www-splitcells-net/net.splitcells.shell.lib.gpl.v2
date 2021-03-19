@@ -2,7 +2,7 @@
 address=$1
 # Ensure the remote branch is present.
 			# If this is not executed, the rest of commands fail a remote is added the first time.
-	git remote add origin $address
+	git remote add origin $address 2>/dev/null # This just ensures that remote label exists.
 	git fetch origin
 git remote set-url origin $address
 git remote set-url --push origin $address
