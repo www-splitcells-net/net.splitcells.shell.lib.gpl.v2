@@ -4,7 +4,7 @@ if [ "1" -eq "$(system.is.Fedora)" ]; then
 		packages.install gstreamer gstreamer-ffmpeg gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-base gstreamer-plugins-good gstreamer-plugins-ugly faad2 faac libdca wget compat-libstdc++-33 compat-libstdc++-296  xine-lib-extras-freeworld
 elif [ "1" -eq "$(system.is.Ubuntu)" ]; then
 	# Update CPU microcode.
-		if [ -z $(sudo -- sh -c "dmidecode | grep --ignore-case intel") ]; then
+		if [ -z "$(sudo -- sh -c "dmidecode | grep --ignore-case intel")" ]; then
 			echo Intel CPU not detected.
 		else
 			echo Found Intel CPU.
