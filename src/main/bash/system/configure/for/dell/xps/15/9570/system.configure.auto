@@ -6,7 +6,7 @@ if [ "1" -eq "$(system.is.Ubuntu)" ]; then
 		# https://gist.github.com/mdziekon/221bdb597cf32b46c50ffab96dbec08a
 		# TODO Make this part own file with own license.
 		# TODO According to /lib/modules/$(uname -r) "_" should be used instead of "-in the module name.
-		sudp -- sh -c 'echo "options dell-smm-hwmon restricted=0 force=1" > /etc/modprobe.d/dell-smm-hwmon.conf'
+		sudo -- sh -c 'echo "options dell-smm-hwmon restricted=0 force=1" > /etc/modprobe.d/dell-smm-hwmon.conf'
 		if cat /etc/modules | grep "dell-smm-hwmon" &>/dev/null
 		then
 			echo "dell-smm-hwmon is already in /etc/modules!"
