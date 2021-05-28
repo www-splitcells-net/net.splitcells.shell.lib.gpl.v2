@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+command_managed_id='1826512691231543595115453312674332106'
+	. command.managed.define
+sudo nethogs
