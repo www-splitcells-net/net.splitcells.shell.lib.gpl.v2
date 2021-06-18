@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 if repo.is.instance.of.git > /dev/null
 then
-	git update-index --refresh
-	git diff-index --quiet HEAD -- || exit 1 # Changes present.
+	if [[ -z $(git status -s) ]]
+	then
+		echo
+	else
+		exit 1
+	fi
 fi
