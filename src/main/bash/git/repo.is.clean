@@ -3,7 +3,7 @@ if repo.is.instance.of.git > /dev/null
 then
 	if [[ -z $(git status -s) ]]
 	then
-		echo
+		exit
 	else
 		exit 1
 	fi
