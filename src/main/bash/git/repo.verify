@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ $(git rev-parse --show-toplevel 2>/dev/null) = "$PWD" ]]; then
-	git fsck --full
+	git fsck --full --no-progress
 else
 	exit 1
 fi
