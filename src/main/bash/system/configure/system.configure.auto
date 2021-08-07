@@ -15,8 +15,6 @@ elif [ "1" -eq "$(system.is.Ubuntu)" ]; then
 		# How to use
 			# Default installation works without additional config.
 			# Helpful doc for additional configuration: https://linrunner.de/de/tlp/tlp.html
-		sudo add-apt-repository -y ppa:linrunner/tlp
-		sudo apt -y update
 		sudo apt -y install thermald tlp tlp-rdw powertop
 		if [ $(lsb_release -c -s) == "bionic" ]; then
 			# Bionic specific fixes
