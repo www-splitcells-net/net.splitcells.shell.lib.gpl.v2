@@ -6,6 +6,6 @@ then
 		exit
 	else
 		pwd # Makes it easier to see, where changes are located.
-		git status
+		git status --untracked-files
 	fi
 fi
