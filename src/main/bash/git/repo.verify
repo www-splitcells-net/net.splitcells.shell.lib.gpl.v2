@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+# Check if current folder is root of git repository.
 if [[ $(git rev-parse --show-toplevel 2>/dev/null) = "$PWD" ]]; then
-	git fsck --full --no-progress
+  # Check for correctness of git repository metadata and only print errors.
+	git fsck --full --no-progress --no-dangling
 else
 	exit 1
 fi
