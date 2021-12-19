@@ -7,7 +7,7 @@ if [ 'true' == $(repo.is.instance.of.git) ]; then
 	else
 		# TODO Update all branches.
 		git submodule update --recursive --remote
-		git pull origin
+		git pull origin # TODO Sometimes the upstream has to be defined, but keep in mind that it is not always master (i.e. main), so it cannot be set automaticall: git branch -u origin/master master
 		# IDEA Support for rebase
 		exit $?
 	fi
