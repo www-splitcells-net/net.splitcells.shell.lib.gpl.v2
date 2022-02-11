@@ -12,10 +12,10 @@ if beginswith "ssh://" $1; then
 			git push --all $1:$2 2>&1
 		fi
 	else
-		git push --all $1 2> 2>&1
+		git push --all $1:$2 2>&1
 	fi
 else
-	git push --all $1 2> 2>&1
+	git push --all $1:$2 2>&1
 fi
 rCode=$?
 if [ "$rCode" -eq "0" ]; then
