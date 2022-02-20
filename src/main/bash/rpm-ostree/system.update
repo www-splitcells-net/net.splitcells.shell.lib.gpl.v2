@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Updates Fedora Silverblue.
+# This command does update the system to the next major version.
+. this.active.if.presence.of rpm-ostree
+rpm-ostree upgrade
