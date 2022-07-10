@@ -38,7 +38,8 @@ if __name__ == '__main__':
 				+ parsedArgs.remoteRepoUrl\
 				+ " 2>/dev/null"
 	logging.debug("Executing: Ensure that remote label exists: " + commandToExecute)
-	subprocess.call(commandToExecute, shell='True')
+	subprocess.call(commandToExecute, shell='True') # The return code, of this command is irrelevant, because it is unequals 0, if the label is already present.
+
 	
 	commandToExecute = "git remote set-url "\
 				+ parsedArgs.remoteRepoName\
@@ -46,7 +47,9 @@ if __name__ == '__main__':
 				+ parsedArgs.remoteRepoUrl\
 				+ " 2>/dev/null"
 	logging.debug("Executing: Set remote URL: " + commandToExecute)
-	subprocess.call(commandToExecute, shell='True')
+	returnCode = subprocess.call(commandToExecute, shell='True')
+	if returnCode != 0:
+		exit(1)
 	
 	commandToExecute = "git remote set-url --push "\
 				+ parsedArgs.remoteRepoName\
@@ -54,8 +57,12 @@ if __name__ == '__main__':
 				+ parsedArgs.remoteRepoUrl\
 				+ " 2>/dev/null"
 	logging.debug("Executing: Set remote URL: " + commandToExecute)
-	subprocess.call(commandToExecute, shell='True')
+	returnCode = subprocess.call(commandToExecute, shell='True')
+	if returnCode != 0:
+		exit(1)
 	
 	commandToExecute = "git push --all " + parsedArgs.remoteRepoName
 	logging.debug("Executing: Set remote URL: " + commandToExecute)
-	subprocess.call(commandToExecute, shell='True')
+	returnCode = subprocess.call(commandToExecute, shell='True')
+	if returnCode != 0:
+		exit(1)
