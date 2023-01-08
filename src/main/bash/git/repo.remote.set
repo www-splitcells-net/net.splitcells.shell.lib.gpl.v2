@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
+# This command is offline and therefore without `git fetch origin`, in order to avoid errors during the synchronization of multiple repos, where one repo is delete on the other server.
 address=$1
 git remote add origin $address 2>/dev/null # This just ensures that remote label exists.
 git remote set-url origin $address
 git remote set-url --push origin $address
-git fetch origin
