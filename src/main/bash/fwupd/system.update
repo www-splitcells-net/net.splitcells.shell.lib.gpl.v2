@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 # Update hardware firmware via fwupd.
-fwupdmgr get-updates --assume-yes # `--assume-yes` is used in order to agree to uploading firmware update reports.
 fwupdmgr refresh
+fwupdmgr get-updates --assume-yes # `--assume-yes` is used in order to agree to uploading firmware update reports.
 fwupdmgr update
