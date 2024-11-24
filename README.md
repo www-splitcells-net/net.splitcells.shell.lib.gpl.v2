@@ -5,7 +5,7 @@
 
 This is a collection of terminal programs for operation system administration.
 The focus is to provided a simple way to get some jobs done.
-It is intended to be used with the [Operation System State Interface project](https://gitlab.com/splitcells/os.state.interface).
+It is intended to be used with the [Operation System State Interface project](https://gitlab.com/splitcells/shell).
 
 ## Licensing
 The files are licensed under the GPLv2.
