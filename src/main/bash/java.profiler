@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# If visualvm does not start, because of a stack overflow via java.lang.System.setSecurityManager0
+# visualvm may be downloaded and run from https://visualvm.github.io/download.html instead.
 export QT_QPA_PLATFORM=xcb # This is required for sway.
 visualvm
