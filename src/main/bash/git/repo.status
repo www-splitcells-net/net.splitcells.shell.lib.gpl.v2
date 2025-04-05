@@ -2,5 +2,9 @@
 if repo.is.instance.of.git > /dev/null
 then
   # This command is used, because it show changed *and* added files.
-	git status --short
+  changes=$(git status --short)
+  if [ -n "$changes" ]; then
+    pwd
+    echo $changes
+  fi
 fi
