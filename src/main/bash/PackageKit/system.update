@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 . this.active.if.presence.of pkcon
 # Worked on Fedora 28 as a VirtualBox guest.
 # TODO This update routine does not seem to work if there is a connection issues to one repository:

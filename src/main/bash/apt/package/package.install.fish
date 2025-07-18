@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 # User Friendly Shell: https://fishshell.com/docs/current/design.html
 if [ "1" -eq "$(system.is.Ubuntu)" ]; then
 	set -x # Exit on first error.

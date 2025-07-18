@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 output=$(sudo.at.current.env pkcon install -y $1)
 rCode=$?
 echo.error $output

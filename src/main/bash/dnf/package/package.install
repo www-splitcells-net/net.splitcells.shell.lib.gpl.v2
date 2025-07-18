@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 if [ -x "$(command -v dnf)" ]; then
 	output=$(sudo dnf install -y $1 > /dev/null)
 	if [ "$?" -eq "0" ]; then

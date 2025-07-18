@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 # TODO git submodule update --init --recursive
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 # Source: https://stackoverflow.com/questions/2172352/in-bash-how-can-i-check-if-a-string-begins-with-some-value

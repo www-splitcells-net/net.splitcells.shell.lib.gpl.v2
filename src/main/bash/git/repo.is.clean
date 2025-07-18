@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 if repo.is.instance.of.git > /dev/null
 then
 	if [[ -z $(git status -s) ]]

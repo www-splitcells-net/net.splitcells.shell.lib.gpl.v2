@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 corectrl # corectrl is licensed under GPL 3 but this script has no integration into this software.

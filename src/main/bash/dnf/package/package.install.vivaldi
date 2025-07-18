@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 . this.requires dnf
 sudo rm /etc/yum.repos.d/vivaldi.repo # This returns error if file is not present.
 set -e

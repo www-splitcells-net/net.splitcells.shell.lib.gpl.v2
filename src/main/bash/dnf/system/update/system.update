@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-2.0
+# SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 . this.active.if.presence.of dnf
 sudo dnf upgrade --refresh --assumeyes
 	# Since version 21 of Fedora there is no need to explicitly download updates and
