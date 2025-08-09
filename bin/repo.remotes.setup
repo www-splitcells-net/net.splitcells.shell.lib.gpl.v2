@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-License-Identifier: GPL-2.0-only
 # SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 git remote add github git@github.com:www-splitcells-net/net.splitcells.os.state.interface.lib.gpl.v2.git
 git remote add gitlab git@gitlab.com:splitcells/net.splitcells.os.state.interface.lib.gpl.v2.git

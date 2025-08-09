@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-License-Identifier: GPL-2.0-only
 # SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
 sudo add-apt-repository -y ppa:ernstp/mesarc
 sudo apt install -y corectrl # corectrl is licensed under GPL 3 but this script has no integration into this software.
