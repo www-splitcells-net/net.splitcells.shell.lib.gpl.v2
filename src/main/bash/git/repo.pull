@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-2.0-only
 # SPDX-FileCopyrightText: Contributors To The `net.splitcells.*` Projects
-# TODO Only do this for projects where merge based publishing is allowed.
+# TODO Provide dedicated command, when merges are allowed.
 if [ 'true' == $(repo.is.instance.of.git) ]; then
 	git remote update origin
 	if [ 'true' == $(repo.is.instance.of.git.bare) ]; then
@@ -9,7 +9,7 @@ if [ 'true' == $(repo.is.instance.of.git) ]; then
 	else
 		# TODO Update all branches.
 		git submodule update --recursive --remote
-		git pull origin # TODO Sometimes the upstream has to be defined, but keep in mind that it is not always master (i.e. main), so it cannot be set automaticall: git branch -u origin/master master
+		git pull --ff-only origin # TODO Sometimes the upstream has to be defined, but keep in mind that it is not always master (i.e. main), so it cannot be set automaticall: git branch -u origin/master master
 		# IDEA Support for rebase
 		exit $?
 	fi
