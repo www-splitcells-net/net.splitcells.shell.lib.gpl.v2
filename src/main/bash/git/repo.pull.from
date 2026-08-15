@@ -21,7 +21,7 @@ if [ 'true' == $(repo.is.instance.of.git) ]; then
 	else
 		# TODO Update or check all branches.
 		git submodule update --recursive --remote
-		git pull $address
+		git pull $address $(git rev-parse --abbrev-ref HEAD)
 	fi
 else
 	exit 1
