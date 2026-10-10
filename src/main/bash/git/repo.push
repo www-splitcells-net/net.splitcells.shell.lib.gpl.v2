@@ -8,7 +8,7 @@ if [ 'true' == $(repo.is.instance.of.git) ]; then
 	else
 		# --mirror and --all are not compatible.
 		# TODO TOFIX Logging needs to be corrected.
-		git remote | xargs -L1 -i git push {} --all
+		git remote | xargs -i git push {} --all
 	fi
 else
 	exit 1
